@@ -1,1 +1,57 @@
+/*Com base no exercício 1, crie uma função preencheB que leia as propriedades de um personagem para o valor apontado pelo ponteiro recebido:
+void preencheB (struct Personagem* p) {
+    ...  // complete aqui
+}
+void main (void) {
+    struct Personagem p1;
+    preencheB(&p1);
 
+    struct Personagem p2;
+    preencheB(&p2);
+    printf("(%d,%d,%d) vs (%d,%d,%d)\n",
+           p1.forca, p1.energia, p1.experiencia,
+           p2.forca, p2.energia, p2.experiencia);*/
+           
+#include <stdio.h>
+struct Personagem {
+    int forca;
+    int energia;
+    int experiencia;};          
+
+void preencheB (struct Personagem* p) {
+    printf("Digite a forca, energia e experiencia do personagem:\n");
+    scanf("%d %d %d", &(*p).forca, &(*p).energia, &(*p).experiencia);//*p é o conteudo apontado pelo ponteiro, ou &p->forca que é o endereço do campo forca da struct apontada por p
+       //O operador *p acessa o conteúdo apontado por p (ou seja, a struct inteira), e .algo acessa um campo específico dentro da struct.
+       }
+void main (void) {
+    struct Personagem p1;
+    preencheB(&p1);
+
+    struct Personagem p2;
+    preencheB(&p2);
+    printf("(%d,%d,%d) vs (%d,%d,%d)\n",
+           p1.forca, p1.energia, p1.experiencia,
+           p2.forca, p2.energia, p2.experiencia);}
+
+
+
+/*que é p1?
+p1 é uma variável do tipo struct Personagem.
+Ou seja, ela guarda os dados da struct diretamente (força, energia, experiência).
+
+O que é &p1?
+&p1 é o endereço de memória onde p1 está guardado
+Quando faz preencheB(&p1);, está passando o endereço de p1 para a função
+
+o que é struct Personagem* p dentro da função?
+p é um ponteiro que recebeu o endereço de p1
+Então, p não é o personagem, e sim o endereço onde o personagem está na memória
+
+o que é *p?
+*p é o conteúdo que o ponteiro p aponta
+Ou seja, *p é o próprio p1
+
+o que é (*p).forca?
+É o campo forca da struct p1, acessado através do ponteiro p
+ou seja, ao colocar em uma função do tipo: void preencheB (struct Personagem* p), eu estou tornando o p o ponteiro de p1 por exemplo, podendo navegar pelas informaçoes do struct.
+*/
