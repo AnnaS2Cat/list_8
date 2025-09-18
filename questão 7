@@ -1,1 +1,41 @@
+/*Chore uma struct qualquer.
+Seja criativo!
+Crie uma função preenche que receba um ponteiro para uma variável da struct criada e leia os campos para a variável passada. Exemplo:
+struct T t;
+preenche(&t);
+printf("A=%d, B=%d\n", t.a, t.b);
+*/
+#include <stdio.h>
+#include <string.h>
 
+struct ficha{
+    char nome[100];
+    int xp;
+    int forca;
+    int mana;
+    int vitalidade;
+};
+void preenche(struct ficha *p){
+    printf("Nome do personagem:");
+    fgets((*p).nome,sizeof((*p).nome),stdin);
+    printf("xp do personagem:");
+    scanf("%d",&(*p).xp);
+    printf("mana do personagem:");
+    scanf("%d",&(*p).mana);
+    printf("vitalidade do personagem:");
+    scanf("%d",&(*p).vitalidade);
+    printf("força do personagem:");
+    scanf("%d",&(*p).forca);
+    
+    fflush(stdin);
+}
+
+int main(void){
+    struct ficha a;
+    preenche(&a);
+    printf("o nome é :%s",a.nome);
+    printf("o xp é :%d\n",a.xp);
+    printf("o mana é :%d\n",a.mana);
+    printf("o força é :%d\n",a.forca);
+    printf("o vitalidade é :%d\n",a.vitalidade);
+}
