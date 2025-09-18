@@ -1,0 +1,53 @@
+/*Declare uma struct para representar as características/propriedades de um atleta de seu esporte favorito.
+Crie uma função que exiba as propriedades de maneira bem organizada e formatada.
+Crie três exemplos de atletas variando as propriedades e teste a função de exibição.*/
+#include <stdio.h>
+#include <string.h>
+struct sporte {
+    char nome[50];
+    int salto;
+    int acrobacia;
+    int pirueta;
+};
+void Atleta(struct sporte a) { //a é o parametro que a função recebe, esse parâmetro é do tipo struct Sporte
+    printf("Dados do Atleta: %s \n", a.nome);
+    printf("Salto     : %d\n", a.salto);
+    printf("Acrobacia : %d\n", a.acrobacia);
+    printf("Pirueta   : %d\n", a.pirueta);
+}
+int main(void){
+    printf("Digite o nome do atleta: ");
+    fgets(a.nome, sizeof(a.nome), stdin);
+    int i = 0;
+    while (a.nome[i] != '\0') {
+        if (a.nome[i] == '\n') {
+        a.nome[i] = '\0';
+        break;
+    }
+    i++;
+}
+
+    printf("Digite a nota do SALTO: ");
+    scanf("%d", &a.salto);
+
+    printf("Digite a nota da ACROBACIA: ");
+    scanf("%d", &a.acrobacia);
+
+    printf("Digite a nota da PIRUETA: ");
+    scanf("%d", &a.pirueta);
+
+    Atleta(atleta);
+
+}
+    
+/*struct Pessoa {
+    char nome[30];
+    int idade;
+};
+int main() {
+    struct Pessoa p;
+    fgets(p.nome, sizeof(p.nome), stdin);  // acessando campo 'nome'
+    p.idade = 25;                          // acessando campo 'idade'
+}*/
+
+NAO TERMINEI
