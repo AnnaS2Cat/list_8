@@ -33,7 +33,7 @@ int main(void){
         scanf("%d", &atl[i].pirueta);
         
         Atleta(atl[i]);
-        getchar();
+        getchar();//evitar o erro de ignorar o nome no fgets (precisa botar)
 
     }
     //j++;
@@ -51,4 +51,3 @@ int main() {
     fgets(p.nome, sizeof(p.nome), stdin);  // acessando campo 'nome'
     p.idade = 25;                          // acessando campo 'idade'
 }*/
-
