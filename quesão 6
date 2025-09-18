@@ -50,4 +50,4 @@ int main() {
     p.idade = 25;                          // acessando campo 'idade'
 }*/
 
-NAO TERMINEI
+
