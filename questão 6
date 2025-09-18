@@ -33,7 +33,7 @@ int main(void){
         scanf("%d", &atl[i].pirueta);
         
         Atleta(atl[i]);
-        getchar();//evitar o erro de ignorar o nome no fgets (precisa botar)
+        getchar();//evitar o erro pq apaga o último valor, ou eu poderia botar o fflush(stdin); pq isso apagaria o buff do teclado para entrar no fgets novamente
 
     }
     //j++;
