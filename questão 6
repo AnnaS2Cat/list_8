@@ -16,30 +16,32 @@ void Atleta(struct sporte a) { //a é o parametro que a função recebe, esse pa
     printf("Pirueta   : %d\n", a.pirueta);
 }
 int main(void){
-    struct sporte a1;
-    printf("Digite o nome do atleta: ");
-    fgets(a1.nome, sizeof(a1.nome), stdin);
-    int i = 0;
-    while (a1.nome[i] != '\0') {
-        if (a1.nome[i] == '\n') {
-        a1.nome[i] = '\0';
-        break;
+    struct sporte atl[3];
+    int i=0;
+    //int j=0;
+    for (i=0;i<3;i++){
+        printf("Digite o nome do atleta: ");
+        fgets(atl[i].nome, sizeof(atl[i].nome), stdin);
+        //while (j)
+        printf("Digite a nota do SALTO: ");
+        scanf("%d", &atl[i].salto);
+
+        printf("Digite a nota da ACROBACIA: ");
+        scanf("%d", &atl[i].acrobacia);
+
+        printf("Digite a nota da PIRUETA: ");
+        scanf("%d", &atl[i].pirueta);
+        
+        Atleta(atl[i]);
+        getchar();
+
     }
-    i++;
+    //j++;
+    for (i = 0; i < 3; i++) {
+        Atleta(atl[i]);//não é &a pq ele não é um ponteiro, ele vai mandar todas as informaçoes de a1 na ordem que aparecem para a funçao atleta
+    }
 }
-
-    printf("Digite a nota do SALTO: ");
-    scanf("%d", &a1.salto);
-
-    printf("Digite a nota da ACROBACIA: ");
-    scanf("%d", &a1.acrobacia);
-
-    printf("Digite a nota da PIRUETA: ");
-    scanf("%d", &a1.pirueta);
-
-    Atleta(a1);//não é &a pq ele não é um ponteiro
-}
- //Ex:   
+    
 /*struct Pessoa {
     char nome[30];
     int idade;
@@ -49,5 +51,4 @@ int main() {
     fgets(p.nome, sizeof(p.nome), stdin);  // acessando campo 'nome'
     p.idade = 25;                          // acessando campo 'idade'
 }*/
-   
-    
+
