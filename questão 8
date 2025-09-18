@@ -1,0 +1,45 @@
+/*Crie uma struct para guardar um ponto no espaço bidimensional com dois inteiros x e y.
+Crie uma função para preencher 1 ponto.
+Na main, crie um vetor com dez pontos.
+Crie uma função para preencher um vetor de pontos.
+Crie uma função que receba um vetor de pontos e retorne o ponto mais distante de (0,0)*/
+#include <stdio.h>
+#include <math.h>
+struct ponto{
+    int x;
+    int y;
+};
+void preenche1(struct ponto *p){
+    printf("qual o valor do eixo x:");
+    scanf("%d",&(*p).x);
+    printf("qual o valor do eixo y:");
+    scanf("%d",&(*p).y);
+}
+
+void preenche2(struct ponto vetor[]) {
+    int i;
+    for (i = 0; i < 10; i++) {
+        printf("Ponto %d:\n", i + 1);
+        preenche1(&vetor[i]);
+    }
+}
+ struct ponto maisdistante(struct ponto vetor[]) {
+    float maiorDist = 0;
+    int indice = 0;
+    float dist;
+    for (int i = 0; i < 10; i++) {
+        dist = sqrt(vetor[i].x * vetor[i].x + vetor[i].y * vetor[i].y);
+        if (dist > maiorDist) {
+            maiorDist = dist;
+            indice = i;//indice que armazena a posição de maior distancia
+        }
+    }
+
+    return vetor[indice];
+}   
+int main(void){
+    struct ponto vet[10];
+    preenche2(vet);
+    struct ponto maior = maisdistante(vet);
+    printf("o ponto de maior distancia:%d %d", maior.x, maior.y);
+}
