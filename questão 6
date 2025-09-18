@@ -10,36 +10,36 @@ struct sporte {
     int pirueta;
 };
 void Atleta(struct sporte a) { //a é o parametro que a função recebe, esse parâmetro é do tipo struct Sporte
-    printf("Dados do Atleta: %s \n", a.nome);
+    printf("Dados do atleta:\nNome: %s \n", a.nome);
     printf("Salto     : %d\n", a.salto);
     printf("Acrobacia : %d\n", a.acrobacia);
     printf("Pirueta   : %d\n", a.pirueta);
 }
 int main(void){
+    struct sporte a1;
     printf("Digite o nome do atleta: ");
-    fgets(a.nome, sizeof(a.nome), stdin);
+    fgets(a1.nome, sizeof(a1.nome), stdin);
     int i = 0;
-    while (a.nome[i] != '\0') {
-        if (a.nome[i] == '\n') {
-        a.nome[i] = '\0';
+    while (a1.nome[i] != '\0') {
+        if (a1.nome[i] == '\n') {
+        a1.nome[i] = '\0';
         break;
     }
     i++;
 }
 
     printf("Digite a nota do SALTO: ");
-    scanf("%d", &a.salto);
+    scanf("%d", &a1.salto);
 
     printf("Digite a nota da ACROBACIA: ");
-    scanf("%d", &a.acrobacia);
+    scanf("%d", &a1.acrobacia);
 
     printf("Digite a nota da PIRUETA: ");
-    scanf("%d", &a.pirueta);
+    scanf("%d", &a1.pirueta);
 
-    Atleta(atleta);
-
+    Atleta(a1);//não é &a pq ele não é um ponteiro
 }
-    
+ //Ex:   
 /*struct Pessoa {
     char nome[30];
     int idade;
@@ -49,5 +49,5 @@ int main() {
     fgets(p.nome, sizeof(p.nome), stdin);  // acessando campo 'nome'
     p.idade = 25;                          // acessando campo 'idade'
 }*/
-
-
+   
+    
