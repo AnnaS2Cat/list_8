@@ -5,10 +5,12 @@ Crie uma função para preencher um vetor de pontos.
 Crie uma função que receba um vetor de pontos e retorne o ponto mais distante de (0,0)*/
 #include <stdio.h>
 #include <math.h>
+#define TAM 10
 struct ponto{
     int x;
     int y;
 };
+//importante usar ponteiro para modificar o valor original na memoria e não só uma cópia 
 void preenche1(struct ponto *p){
     printf("qual o valor do eixo x:");
     scanf("%d",&(*p).x);
@@ -16,14 +18,14 @@ void preenche1(struct ponto *p){
     scanf("%d",&(*p).y);
 }
 
-void preenche2(struct ponto vetor[]) {
+void preenche2(struct ponto *vetor) {
     int i;
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < TAM; i++) {
         printf("Ponto %d:\n", i + 1);
         preenche1(&vetor[i]);
     }
 }
- struct ponto maisdistante(struct ponto vetor[]) {
+ struct ponto maisdistante(struct ponto *vetor) {// vetor[] aqui é o mesmo que escrever: struct ponto *vetor, struct ponto na frente do nome da função só mostra que ele tá retornando um struct, igual ele faz com o int na frente(retornando um inteiro), logo, a função maisdistante recebe um vetor de struct ponto e devolve um struct ponto
     float maiorDist = 0;
     int indice = 0;
     float dist;
@@ -38,8 +40,18 @@ void preenche2(struct ponto vetor[]) {
     return vetor[indice];
 }   
 int main(void){
-    struct ponto vet[10];
-    preenche2(vet);
-    struct ponto maior = maisdistante(vet);
+    struct ponto vet[TAM];//estou criando 10 blocos de memória que contem os pontos x e y
+    preenche2(vet);//estou passando o endereço do primeiro elemento do vetor, ou seja, um struct ponto*
+    struct ponto maior = maisdistante(vet);//struct ponto maior- criei uma variável chamada maior, que vai guardar um único ponto x,y
     printf("o ponto de maior distancia:%d %d", maior.x, maior.y);
 }
+/*preenche2(vet); Passa o vetor inteiro (endereço do primeiro item)
+preenche2(vet[TAM]); Passa 1 ponto (fora do vetor)
+Em C, quando você usa o nome de um vetor sem índice, como:
+
+preenche2(vet);
+O que está sendo passado é:
+O endereço do primeiro elemento do vetor
+Ou seja: &vet[0]
+vet se comporta como um ponteiro para struct ponto.
+*/
