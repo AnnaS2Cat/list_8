@@ -1,0 +1,7 @@
+Um jogo possui 10 personagens, cada um com as seguintes características:
+Um número que representa a sua “identidade”.
+Uma posição (x,y)no espaço bidimensional.
+Uma quantidade de pontuação (inicialmente 0).
+Crie uma estrutura para representar um personagem.
+A posição também deve ser uma struct.
+Crie um vetor com 10 caracteres.
