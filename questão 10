@@ -1,0 +1,46 @@
+/*Crie uma função que leia um personagem (use struct o exercício anterior).
+A função deve usar uma função que lê a posição.
+Crie um loop para ler todos os 10 personagens
+Desenhe um mapa do jogo.
+Use funções auxiliares!
+Exemplo:
+   0 1 2 3 4 5 6 7 8 9
+
+0          8
+1    0
+2 
+3              3
+4 
+5                  7
+6      2
+7 
+8          9
+9                  5
+*/
+
+#include <stdio.h>
+struct Personagem {
+    int id;         
+    int x;          
+    int y;          
+    int pontuacao;  
+};
+void lerPosicao(int *x, int *y) {
+    printf("Digite a posição X (0 a 9): ");
+    scanf("%d", x);
+    printf("Digite a posição Y (0 a 9): ");
+    scanf("%d", y);
+}
+void lerPersonagem(int id, struct Personagem *p) {
+    (*p).id = id;//vou dentro do id na struct e defino ele de acordo com o usuário ao chamar a funçao na main
+    (*p).pontuacao = 0;//a pontuaçao do persng. começa em 0
+    printf("\nPersonagem %d:\n", id);
+    lerPosicao(&(*p).x, &(*p).y);//chamo a função para saber a posição do meu personagem com a respectiva id
+}
+int main() {
+    struct Personagem personagens[10];
+    int i;
+    for  (i=0; i<10;i++) {
+        lerPersonagem(i, &personagens[i]);
+}
+}
