@@ -1,7 +1,35 @@
-Um jogo possui 10 personagens, cada um com as seguintes características:
+/*Um jogo possui 10 personagens, cada um com as seguintes características:
 Um número que representa a sua “identidade”.
 Uma posição (x,y)no espaço bidimensional.
 Uma quantidade de pontuação (inicialmente 0).
 Crie uma estrutura para representar um personagem.
 A posição também deve ser uma struct.
-Crie um vetor com 10 caracteres.
+Crie um vetor com 10 caracteres.*/
+
+#include <stdio.h>
+struct Personagem {
+    int id;         
+    int x;          
+    int y;          
+    int pontuacao;  
+};
+
+int main(void){
+    struct Personagem personagens[10];
+    int i;
+    for (i = 0; i < 10; i++) {
+        personagens[i].id = i+1;       
+        personagens[i].x = 0;            
+        personagens[i].y = 0;            
+        personagens[i].pontuacao = 0;    
+    }
+    i = 0;//reinicia o i para o while,pq ele para em 10, já que eu não vou usar um for de novo, onde eu teria que reniciar o i 
+
+    while (i<10){
+        printf("Personagem %d -> Posicao: (%d,%d), Pontuação: %d\n",
+               personagens[i].id,//começa a partir de i +1,como definido anteriormente
+               personagens[i].x,
+               personagens[i].y,
+               personagens[i].pontuacao);
+               i++;
+    }
