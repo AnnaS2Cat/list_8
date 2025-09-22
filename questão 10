@@ -37,10 +37,46 @@ void lerPersonagem(int id, struct Personagem *p) {
     printf("\nPersonagem %d:\n", id);
     lerPosicao(&(*p).x, &(*p).y);//chamo a função para saber a posição do meu personagem com a respectiva id
 }
+void criarMapa(struct Personagem personagens[], int n) {//n é tamanho do vetor personagens
+
+    char mapa[10][10];//char pq tem espaços vazios 
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            mapa[i][j] = ' ';
+        }
+    }
+//char k;
+//int w = 4;
+//k = '0' + w; uso para converter inteiro para char 
+    for (int k = 0; k < n; k++) {
+        int a = personagens[k].x;
+        int b = personagens[k].y;
+        if (a >= 0 && a < 10 && b >= 0 && b < 10) {
+            mapa[a][b] = '0' + personagens[k].id;//para colocar o valor do id no mapa char, fçao isso para conerter o número em char
+        }
+    }
+
+    printf("\n   ");
+    for (int j = 0; j < 10; j++) {
+        printf("%d ", j);
+    }
+
+    printf("\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("%d  ", i);
+        for (int j = 0; j < 10; j++) {
+            printf("%c ", mapa[i][j]);
+        }
+        printf("\n");
+    }
+}
 int main() {
     struct Personagem personagens[10];
     int i;
     for  (i=0; i<10;i++) {
         lerPersonagem(i, &personagens[i]);
-}
+    }
+    criarMapa(personagens, 10);
 }
